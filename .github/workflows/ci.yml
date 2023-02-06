@@ -39,7 +39,7 @@ jobs:
           tags: ${{ env.TAG_PREFIX }}:test
       
       - name: test lightgbm works 
-        run: docker run --rm -v $PWD:/app --workdir /app ${{ env.TEST_TAG }} python train_model.py
+        run: docker run --rm -v $PWD:/app --workdir /app ${{ env.TAG_PREFIX }}:test python train_model.py
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
