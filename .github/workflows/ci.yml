@@ -7,8 +7,10 @@ on:
   pull_request:
 
 env:
-  TEST_TAG: tandav/centos6-lightgbm:test
-  LATEST_TAG: tandav/centos6-lightgbm:latest
+  TAG_PREFIX: tandav/centos6-lightgbm
+  # TEST_TAG: tandav/centos6-lightgbm:test
+  # LATEST_TAG: tandav/centos6-lightgbm:latest
+  # SHA_TAG: tandav/centos6-lightgbm:${{ github.sha }}
 
 jobs:
   build:
@@ -34,7 +36,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           load: true
-          tags: ${{ env.TEST_TAG }}
+          tags: ${{ env.TAG_PREFIX }}:test
       
       - name: test lightgbm works 
         run: docker run --rm -v $PWD:/app --workdir /app ${{ env.TEST_TAG }} python train_model.py
@@ -43,4 +45,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{ env.LATEST_TAG }}
+          tags: ${{ env.TAG_PREFIX }}:$GITHUB_SHA,${{ env.TAG_PREFIX }}:latest
