@@ -33,4 +33,4 @@ jobs:
           tags: tandav/centos6-lightgbm
 
       - name: test lightgbm works
-        run: docker run --rm -it -v $PWD:/app --workdir /app tandav/centos6-lightgbm python train_model.py
+        run: docker run --rm -v $PWD:/app --workdir /app tandav/centos6-lightgbm python train_model.py
