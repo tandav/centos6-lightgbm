@@ -8,9 +8,6 @@ on:
 
 env:
   TAG_PREFIX: tandav/centos6-lightgbm
-  # TEST_TAG: tandav/centos6-lightgbm:test
-  # LATEST_TAG: tandav/centos6-lightgbm:latest
-  # SHA_TAG: tandav/centos6-lightgbm:${{ github.sha }}
 
 jobs:
   build:
