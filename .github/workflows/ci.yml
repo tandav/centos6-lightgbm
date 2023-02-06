@@ -31,6 +31,7 @@ jobs:
       - name: Build test Docker image
         uses: docker/build-push-action@v4
         with:
+          load: true
           tags: ${{ env.TEST_TAG }}
       
       - name: test lightgbm works 

@@ -1,5 +1,6 @@
 FROM conda/miniconda3-centos6
 
+# https://www.getpagespeed.com/server-setup/how-to-fix-yum-after-centos-6-went-eol
 COPY CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo
 
 RUN yum -y update && yum -y groupinstall "Development Tools"
