@@ -42,4 +42,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{ env.TAG_PREFIX }}:${{ env.GITHUB_SHA }},${{ env.TAG_PREFIX }}:latest
+          tags: ${{ env.TAG_PREFIX }}:${{ github.sha }},${{ env.TAG_PREFIX }}:latest
